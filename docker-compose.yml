@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  database_queries:
+    image: postgres
+    container_name: database_queries
+    restart: always
+    ports: 
+      - 5432:5432
+    environment: 
+      - POSTGRES_USER=docker_queries
+      - POSTGRES_PASSWORD=passw
+      - POSTGRES_DB=default 
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
